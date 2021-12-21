@@ -17,13 +17,6 @@ export const loaderOn = () => ({ type: LOADER_DISPLAY_ON });
 export const loaderOff = () => ({ type: LOADER_DISPLAY_OFF });
 export const errorOff = () => ({ type: ERROR_DISPLAY_OFF });
 export const commentCreate = (payload) => ({ type: COMMENT_CREATE, payload });
-// export function commentCreate(text, id) {
-//     return {
-//         type: COMMENT_CREATE,
-//         data: { text, id },
-//     };
-// }
-// export const commentCreate = (payload) => ({ type: COMMENT_CREATE, payload });
 export const commentUpdate = (payload) => ({ type: COMMENT_UPDATE, payload });
 export const commentDelete = (id) => ({ type: COMMENT_DELETE, payload: id });
 
