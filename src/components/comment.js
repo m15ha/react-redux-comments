@@ -11,7 +11,11 @@ const Comment = (data) => {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        dispatch(commentUpdate(commentText, id));
+        const updatedComment = {
+            id,
+            commentText
+        }
+        dispatch(commentUpdate(updatedComment));
     };
 
     const handleDelete = (e) => {

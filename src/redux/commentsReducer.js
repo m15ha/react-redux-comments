@@ -9,7 +9,7 @@ const intialState = {
     comments: [],
 };
 
-export const commentsReducer = (state = intialState, action) => {
+export const commentsReducer = (state = intialState, action) => {    
     switch (action.type) {
         case COMMENT_CREATE:
             return {
@@ -30,13 +30,13 @@ export const commentsReducer = (state = intialState, action) => {
             };
 
         case COMMENT_UPDATE:
-            const { data } = action;
+            const { payload } = action;
             const { comments } = state;
-            const itemIndex = comments.findIndex((res) => res.id === data.id);
+            const itemIndex = comments.findIndex((res) => res.id === payload.id);
 
             const nextComments = [
                 ...comments.slice(0, itemIndex),
-                data,
+                payload,
                 ...comments.slice(itemIndex + 1),
             ];
 
