@@ -9,7 +9,7 @@ const intialState = {
     comments: [],
 };
 
-export const commentsReducer = (state = intialState, action) => {    
+export const commentsReducer = (state = intialState, action) => {
     switch (action.type) {
         case COMMENT_CREATE:
             return {
@@ -30,19 +30,23 @@ export const commentsReducer = (state = intialState, action) => {
             };
 
         case COMMENT_UPDATE:
-            const { payload } = action;
-            const { comments } = state;
-            const itemIndex = comments.findIndex((res) => res.id === payload.id);
+            return () => {
+                const { payload } = action;
+                const { comments } = state;
+                const itemIndex = comments.findIndex(
+                    (res) => res.id === payload.id
+                );
 
-            const nextComments = [
-                ...comments.slice(0, itemIndex),
-                payload,
-                ...comments.slice(itemIndex + 1),
-            ];
+                const nextComments = [
+                    ...comments.slice(0, itemIndex),
+                    payload,
+                    ...comments.slice(itemIndex + 1),
+                ];
 
-            return {
-                ...state,
-                comments: nextComments,
+                return {
+                    ...state,
+                    comments: nextComments,
+                };
             };
 
         case COMMENT_DELETE:
